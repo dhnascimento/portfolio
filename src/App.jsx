@@ -1,19 +1,21 @@
-import Portfolio from "./components/Portfolio"
+import Navbar from "./components/Navbar"
+import About from "./components/About"
+import Projects from "./components/Projects"
+import Skills from "./components/Skills"
+import Contact from "./components/Contact"
+
 
 function App() {
 
   return (
-    <>
-      <header>
-        <h1>Welcome to My Portfolio Website</h1>
-      </header>
       <main>
-        <Portfolio />
+        <Navbar/>
+        <About/>
+        <Projects/>
+        <Skills/>
+        <Contact/>
       </main>
-      <footer>
-        {/* Add your footer content here */}
-      </footer>
-    </>
+
   )
 }
 
