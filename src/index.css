@@ -1,68 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --stick-width: 2%;
+  --ball-radius: 40px;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+.stick {
+  width: var(--stick-width);
+  height: calc(var(--stick-width) * 15);
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+.stick.left {
+  animation: leftStick 5s infinite;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.stick.right {
+  animation: rightStick 5s infinite;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.ball {
+  width: var(--ball-radius);
+  height:var(--ball-radius);
+  border-radius: 50%;
+  animation: ballTrajectory 5s infinite ease-in-out;
+  
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.ball .js-logo {
+  animation: hideLogo1 5s infinite;
+
+}
+
+.ball .php-logo {
+  animation: hideLogo2 5s infinite;
+  animation-delay: 5s;
+  
+}
+
+@keyframes leftStick {
+  0% {
+    top: 15%
   }
-  a:hover {
-    color: #747bff;
+  
+  50% {
+    top: 50%
   }
-  button {
-    background-color: #f9f9f9;
+  
+  100% {
+    top: 15%
+  }
+}
+
+@keyframes rightStick {
+  0% {
+    top: 50%
+  }
+  
+  50% {
+    top: 15%
+  }
+  
+  100% {
+    top: 50%
+  }
+}
+
+@keyframes ballTrajectory {
+  0% {
+      top: 30%;
+      left: 2%;
+  }
+  
+  25% {
+      top: calc(100% - var(--ball-radius));
+      left: 50%;
+  }
+  
+  50% {
+      top: 30%;
+      left: calc(100% - var(--ball-radius) - var(--stick-width));
+  }
+  
+  75% {
+      top: 0%;
+      left: 50%;
+  }
+  
+  100% {
+      top: 30%;
+      left: 2%;
+  }
+  
+}
+
+@keyframes hideLogo1 {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+  
+}
+
+@keyframes hideLogo2 {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+  
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stick.left, .stick.right, .ball {
+    animation: none;
   }
 }
