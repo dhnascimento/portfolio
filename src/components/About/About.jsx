@@ -1,4 +1,5 @@
-import classNames from "classnames";
+import Logos from "./Logos";
+import logos from "../../assets/logosList";
 
 export default function About() {
   return (
@@ -16,35 +17,7 @@ export default function About() {
           <div className="stick left bg-white absolute left-0 top-10"></div>
           <div className="stick right bg-white absolute right-0 top-50"></div>
           <div className="ball bg-white absolute left-0 top-20">
-            <img
-              src="/js-logo.png"
-              alt="Logo 1"
-              className={classNames(
-                "logo",
-                "js-logo",
-                "active",
-                "w-full",
-                "h-full",
-                "object-cover",
-                "absolute",
-                "rounded-lg"
-              )}
-            />
-            <img
-              src="/php-logo.png"
-              alt="Logo 2"
-              className={classNames(
-                "logo",
-                "php-logo",
-                "w-full",
-                "h-full",
-                "object-cover",
-                "absolute",
-                "rounded-lg",
-                "bg-[#777BB3]"
-              )}
-            />
-            {/* Add more logo images as needed */}
+            <Logos logosList={logos}/>
           </div>
         </div>
       </div>

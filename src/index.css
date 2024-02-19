@@ -25,17 +25,7 @@
   height:var(--ball-radius);
   border-radius: 50%;
   animation: ballTrajectory 5s infinite ease-in-out;
-  
-}
-
-.ball .js-logo {
-  animation: hideLogo1 5s infinite;
-
-}
-
-.ball .php-logo {
-  animation: hideLogo2 5s infinite;
-  animation-delay: 5s;
+  overflow: hidden;
   
 }
 
@@ -95,7 +85,7 @@
   
 }
 
-@keyframes hideLogo1 {
+/* @keyframes hideLogo1 {
   0% {
     opacity: 1;
   }
@@ -123,7 +113,7 @@
     opacity: 0;
   }
   
-}
+} */
 
 @media (prefers-reduced-motion: reduce) {
   .stick.left, .stick.right, .ball {
