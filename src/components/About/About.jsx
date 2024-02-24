@@ -14,8 +14,8 @@ export default function About() {
           </p>
         </div>
         <div className="pong-container relative w-2/4 h-2/4 mx-auto">
-          <div className="stick left bg-white absolute left-0 top-10"></div>
-          <div className="stick right bg-white absolute right-0 top-50"></div>
+          <div className="stick left flex items-center  justify-center bg-transparent border-4 border-transparent absolute left-0 top-10"></div>
+          <div className="stick right flex items-center  justify-center bg-transparent border-4 border-transparent absolute right-0 top-50"></div>
           <div className="ball bg-white absolute left-0 top-20">
             <Logos logosList={logos}/>
           </div>

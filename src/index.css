@@ -3,13 +3,23 @@
 @tailwind utilities;
 
 :root {
-  --stick-width: 2%;
-  --ball-radius: 40px;
+  --stick-width: 20%;
+  --ball-radius: 5%;
+  --stick-height: calc(var(--stick-width) * 0.95);
+  --stick-top: 15%;
+  --ball-delta: var(--ball-radius);
 }
 
 .stick {
   width: var(--stick-width);
-  height: calc(var(--stick-width) * 15);
+  height: var(--stick-height);
+}
+
+.stick::before {
+  content: "</>";
+  color: #fff;
+  display: inline;
+  font-size: 3rem;
 }
 
 .stick.left {
@@ -22,7 +32,7 @@
 
 .ball {
   width: var(--ball-radius);
-  height:var(--ball-radius);
+  height:calc(var(--ball-radius) * 2.13);
   border-radius: 50%;
   animation: ballTrajectory 5s infinite ease-in-out;
   overflow: hidden;
@@ -31,7 +41,7 @@
 
 @keyframes leftStick {
   0% {
-    top: 15%
+    top: var(--stick-top);
   }
   
   50% {
@@ -39,7 +49,7 @@
   }
   
   100% {
-    top: 15%
+    top: var(--stick-top);
   }
 }
 
@@ -49,7 +59,7 @@
   }
   
   50% {
-    top: 15%
+    top: var(--stick-top);
   }
   
   100% {
@@ -59,8 +69,9 @@
 
 @keyframes ballTrajectory {
   0% {
-      top: 30%;
-      left: 2%;
+      top: var(--stick-top);
+      /* left: 2%; */
+      left: calc(var(--stick-width) - var(--ball-delta));
   }
   
   25% {
@@ -69,8 +80,8 @@
   }
   
   50% {
-      top: 30%;
-      left: calc(100% - var(--ball-radius) - var(--stick-width));
+      top: var(--stick-top);;
+      left: calc(100% - var(--ball-radius) - var(--stick-width) + var(--ball-delta));
   }
   
   75% {
@@ -79,8 +90,9 @@
   }
   
   100% {
-      top: 30%;
-      left: 2%;
+      top: var(--stick-top);;
+      /* left: 2%; */
+      left: calc(var(--stick-width) - var(--ball-delta));
   }
   
 }
